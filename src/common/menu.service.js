@@ -15,6 +15,18 @@ function MenuService($http, ApiPath) {
     });
   };
 
+
+  service.getMenuItems = function (category) {
+    var config = {};
+    if (category) {
+      config.params = {'category': category};
+    }
+
+    return $http.get(ApiPath + '/menu_items.json', config).then(function (response) {
+      return response.data;
+    });
+  };
+
 }
 
 
